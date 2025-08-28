@@ -33,11 +33,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-neon rounded-lg flex items-center justify-center">
-              <span className="text-neon-foreground font-bold text-sm">BA</span>
-            </div>
-            <span className="font-heading font-bold text-lg text-foreground">
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/logo_bayarea.svg" 
+              alt="Bay Area Affiliates Logo" 
+              className="w-8 h-8 opacity-90 hover:opacity-100 transition-opacity duration-300"
+            />
+            <span className="font-heading font-bold text-lg text-white">
               Bay Area Affiliates
             </span>
           </Link>
@@ -51,7 +53,7 @@ const Navigation = () => {
                 className={`font-medium transition-colors duration-200 ${
                   isActive(item.path)
                     ? 'text-neon'
-                    : 'text-foreground-muted hover:text-neon'
+                    : 'text-white hover:text-neon'
                 }`}
               >
                 {item.name}
@@ -68,7 +70,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-foreground hover:text-neon transition-colors"
+            className="md:hidden text-white hover:text-neon transition-colors"
             aria-label="Toggle navigation menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,7 +89,7 @@ const Navigation = () => {
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                     isActive(item.path)
                       ? 'text-neon bg-neon/10'
-                      : 'text-foreground-muted hover:text-neon hover:bg-neon/5'
+                      : 'text-white hover:text-neon hover:bg-neon/5'
                   }`}
                 >
                   {item.name}
