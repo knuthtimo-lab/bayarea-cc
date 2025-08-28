@@ -1,17 +1,35 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import heroNetwork from '@/assets/hero-network.jpg';
 
 const HeroSection = () => {
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
+        imageRef.current.style.transform = `translateY(${parallax}px) scale(1.1)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="section-pin grid-overlay">
       <div className="relative h-full flex items-center justify-center overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0">
+        {/* Background image with parallax */}
+        <div className="absolute inset-0 overflow-hidden">
           <img 
+            ref={imageRef}
             src={heroNetwork} 
             alt="Modern IT infrastructure with network connections" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-[110%] object-cover opacity-20 will-change-transform"
+            style={{ transform: 'translateY(0px) scale(1.1)' }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background"></div>
         </div>
