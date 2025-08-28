@@ -1,4 +1,5 @@
-import { Shield, Zap, Users } from 'lucide-react';
+import { Shield, Zap, Users, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ScrollReveal from '../ScrollReveal';
 
 const ValuePillars = () => {
@@ -15,7 +16,7 @@ const ValuePillars = () => {
       number: '02',
       title: 'Faster Devices, Happier Teams',
       description: 'Practical upgrades like SSD migrations and cleanup reduce tickets and boost morale.',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop&auto=format'
+      image: '/Faster_Devices_Happier_Teams.png'
     },
     {
       icon: Shield,
@@ -71,9 +72,14 @@ const ValuePillars = () => {
                       {pillar.description}
                     </p>
                     
-                    <button className="btn-ghost">
-                      Learn more
-                    </button>
+                    <Link
+                      to="/services"
+                      className="btn-ghost group flex items-center space-x-2 w-fit"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                   </div>
 
                   {/* Image */}
