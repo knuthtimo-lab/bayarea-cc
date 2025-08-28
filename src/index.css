@@ -1,96 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Bay Area Affiliates Design System - Neon on Dark */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base teal/near-black system */
+    --background: 180 75% 7%;        /* #071b1b */
+    --background-deep: 180 72% 9%;   /* #0b2626 */
+    --foreground: 0 0% 98%;          /* Near white */
+    --foreground-muted: 0 0% 80%;    /* Muted white */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Cards and surfaces */
+    --card: 180 65% 10%;
+    --card-foreground: 0 0% 95%;
+    --card-border: 180 40% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Neon lime accent system */
+    --neon: 76 100% 58%;             /* #b7ff2a */
+    --neon-glow: 76 100% 58%;
+    --neon-muted: 76 60% 45%;
+    --neon-foreground: 180 75% 7%;   /* Dark text on neon */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Interactive states */
+    --primary: 76 100% 58%;          /* Neon lime */
+    --primary-foreground: 180 75% 7%;
+    --primary-hover: 76 100% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 40% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --secondary-hover: 180 40% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted and accent variants */
+    --muted: 180 40% 12%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 40% 15%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
 
-    --radius: 0.5rem;
+    /* Borders and inputs */
+    --border: 180 40% 18%;
+    --input: 180 40% 15%;
+    --input-border: 180 40% 25%;
+    --ring: 76 100% 58%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Radius system */
+    --radius: 1.5rem;
+    --radius-sm: 0.75rem;
+    --radius-lg: 2rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Grid and overlay */
+    --grid-color: 180 40% 12%;
+    --overlay: 180 75% 7% / 0.8;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animations and effects */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows and glows */
+    --shadow-neon: 0 0 20px hsl(var(--neon) / 0.3);
+    --shadow-neon-strong: 0 0 40px hsl(var(--neon) / 0.6);
+    --shadow-card: 0 8px 32px hsl(180 75% 7% / 0.4);
   }
 }
 
@@ -100,6 +80,103 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Grid overlay */
+  .grid-overlay {
+    background-image: 
+      linear-gradient(hsl(var(--grid-color)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-color)) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+  }
+
+  /* Neon glow effects */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-smooth);
+  }
+
+  .neon-glow:hover {
+    box-shadow: var(--shadow-neon-strong);
+  }
+
+  /* Text glow */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--neon) / 0.5);
+  }
+
+  /* Scroll reveal animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Parallax container */
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Section pinning */
+  .section-pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Button variants */
+  .btn-neon {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover;
+    @apply rounded-[var(--radius)] px-8 py-4 font-semibold;
+    @apply transition-all duration-300 ease-out;
+    @apply shadow-[0_0_0_1px_hsl(var(--neon))] hover:shadow-[0_0_20px_hsl(var(--neon)/0.5)];
+  }
+
+  .btn-ghost {
+    @apply border border-border hover:border-neon text-foreground hover:text-neon;
+    @apply rounded-[var(--radius)] px-8 py-4 font-semibold;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-[0_0_15px_hsl(var(--neon)/0.3)];
+  }
+
+  /* Card styles */
+  .card-dark {
+    @apply bg-card border border-card-border rounded-[var(--radius-lg)];
+    @apply backdrop-blur-sm shadow-[var(--shadow-card)];
+  }
+
+  /* Typography helpers */
+  .text-balance {
+    text-wrap: balance;
   }
 }
